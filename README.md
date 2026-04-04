@@ -65,8 +65,8 @@ src/main/java/com/projectOne/journalApp/
 ├── service/
 │   ├── JournalEntryService.java
 │   └── UserService.java
-└── JournalAppApplication.java
-
+└── JournalAppApplication.java 
+  
 ## Security
 - BCrypt password encoding
 - HTTP Basic Authentication
