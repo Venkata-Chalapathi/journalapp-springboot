@@ -57,7 +57,7 @@ src/main/java/com/projectOne/journalApp/
 │   ├── PublicController.java
 │   └── UserController.java
 ├── entity/
-│   ├── JournalEntry.java
+│   ├── JournalEntry.java 
 │   └── User.java
 ├── repository/
 │   ├── JournalEntryRepository.java
