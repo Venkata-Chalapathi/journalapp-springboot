@@ -47,6 +47,7 @@ A backend REST API for managing personal journal entries with user authenticatio
 | GET | /admin/all-users | Get all users |
 
 ## Project Structure
+```
 src/main/java/com/projectOne/journalApp/
 ├── config/
 │   ├── SpringSecurity.java
@@ -57,7 +58,7 @@ src/main/java/com/projectOne/journalApp/
 │   ├── PublicController.java
 │   └── UserController.java
 ├── entity/
-│   ├── JournalEntry.java 
+│   ├── JournalEntry.java
 │   └── User.java
 ├── repository/
 │   ├── JournalEntryRepository.java
@@ -65,8 +66,9 @@ src/main/java/com/projectOne/journalApp/
 ├── service/
 │   ├── JournalEntryService.java
 │   └── UserService.java
-└── JournalAppApplication.java 
-  
+└── JournalAppApplication.java
+```
+
 ## Security
 - BCrypt password encoding
 - HTTP Basic Authentication
