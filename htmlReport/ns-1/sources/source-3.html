@@ -1,0 +1,160 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > UserService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.projectOne.journalApp.service</a>
+</div>
+
+<h1>Coverage Summary for Class: UserService (com.projectOne.journalApp.service)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">UserService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    14.3%
+  </span>
+  <span class="absValue">
+    (1/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    11.1%
+  </span>
+  <span class="absValue">
+    (1/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.projectOne.journalApp.service;
+&nbsp;
+&nbsp;import com.projectOne.journalApp.entity.JournalEntry;
+&nbsp;import com.projectOne.journalApp.entity.User;
+&nbsp;import com.projectOne.journalApp.repository.JournalEntryRepository;
+&nbsp;import com.projectOne.journalApp.repository.UserRepository;
+&nbsp;import org.bson.types.ObjectId;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.data.mongodb.core.MongoTemplate;
+&nbsp;import org.springframework.security.crypto.password.PasswordEncoder;
+&nbsp;import org.springframework.stereotype.Component;
+&nbsp;
+&nbsp;import java.lang.reflect.Array;
+&nbsp;import java.util.Arrays;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;
+&nbsp;@Component
+<b class="fc">&nbsp;public class UserService {</b>
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private UserRepository userRepository;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private PasswordEncoder passwordEncoder;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private MongoTemplate mongoTemplate;
+&nbsp;
+&nbsp;    public void saveNewUser(User user) {
+&nbsp;
+<b class="nc">&nbsp;        user.setPassword(passwordEncoder.encode(user.getPassword()));</b>
+<b class="nc">&nbsp;        user.setRoles(Arrays.asList(&quot;USER&quot;));</b>
+<b class="nc">&nbsp;        userRepository.save(user);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void saveUser(User user) {
+<b class="nc">&nbsp;        userRepository.save(user);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;User&gt; getAll() {
+<b class="nc">&nbsp;        return userRepository.findAll();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Optional&lt;User&gt; findById(ObjectId id) {
+<b class="nc">&nbsp;        return userRepository.findById(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void deleteById(ObjectId id) {
+<b class="nc">&nbsp;        userRepository.deleteById(id);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public User findByUserName(String userName){
+<b class="nc">&nbsp;        return userRepository.findByUserName(userName);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2026-04-05 10:45</div>
+</div>
+</body>
+</html>

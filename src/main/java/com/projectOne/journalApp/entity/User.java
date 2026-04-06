@@ -32,4 +32,7 @@
 
         private List<String> roles;
 
+        public User() {
+
+        }
     }
