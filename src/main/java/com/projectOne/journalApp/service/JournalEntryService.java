@@ -4,6 +4,8 @@ import com.projectOne.journalApp.entity.JournalEntry;
 import com.projectOne.journalApp.entity.User;
 import com.projectOne.journalApp.repository.JournalEntryRepository;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +26,8 @@ public class JournalEntryService {
 //    @Autowired
 //    private MongoTemplate mongoTemplate;
 
+    private static final Logger logger = LoggerFactory.getLogger(JournalEntryService.class);
+
     @Transactional
     public void saveEntry(JournalEntry journalEntry, String userName) {
 
@@ -35,6 +39,7 @@ public class JournalEntryService {
 //           user.setUserName(null);
            userService.saveUser(user);
        } catch (Exception e){
+           logger.info("hahahahahhahahaaa");
            System.out.println(e);
            throw new RuntimeException("Error occurred while saving an entry " + e );
        }
