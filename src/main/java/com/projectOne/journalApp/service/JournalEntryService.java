@@ -3,6 +3,7 @@ package com.projectOne.journalApp.service;
 import com.projectOne.journalApp.entity.JournalEntry;
 import com.projectOne.journalApp.entity.User;
 import com.projectOne.journalApp.repository.JournalEntryRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
+@Slf4j
 public class JournalEntryService {
 
     @Autowired
@@ -39,8 +41,7 @@ public class JournalEntryService {
 //           user.setUserName(null);
            userService.saveUser(user);
        } catch (Exception e){
-           logger.info("hahahahahhahahaaa");
-           System.out.println(e);
+           log.error("Error" , e);
            throw new RuntimeException("Error occurred while saving an entry " + e );
        }
     }

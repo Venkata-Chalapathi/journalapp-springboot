@@ -1,9 +1,11 @@
 package com.projectOne.journalApp.controller;
 
 
+import com.projectOne.journalApp.api.response.WeatherResponse;
 import com.projectOne.journalApp.entity.User;
 import com.projectOne.journalApp.repository.UserRepository;
 import com.projectOne.journalApp.service.UserService;
+import com.projectOne.journalApp.service.WeatherService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,6 +33,9 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private WeatherService weatherService;
 
 //    @GetMapping
 //    public List<User> getAllUsers(){
@@ -70,5 +75,16 @@ public class UserController {
         return new ResponseEntity<>( HttpStatus.NO_CONTENT );
     }
 
+    @GetMapping
+    public ResponseEntity<?> greetings() {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        WeatherResponse weatherResponse = weatherService.getWeather("Ooty");
+        String greeting = "";
+        if(weatherResponse != null){
+            greeting = " Weather feels like : " + weatherResponse.getCurrent().getFeelslike();
+        }
+        return new ResponseEntity<>("Hi " + authentication.getName() + greeting , HttpStatus.OK);
+    }
 
 }
