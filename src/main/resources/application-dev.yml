@@ -11,9 +11,13 @@ server:
   servlet:
     context-path: /
 
+weather:
+  api:
+    key: 5e231487304aae75a617927b16e308f0
 
-logging:
-  level:
-    com:
-      projectOne:
-        journalApp: DEBUG
+
+#logging:
+#  level:
+#    com:
+#      projectOne:
+#        journalApp: DEBUG
