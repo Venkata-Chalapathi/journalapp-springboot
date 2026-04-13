@@ -1,5 +1,6 @@
 package com.projectOne.journalApp.controller;
 
+import com.projectOne.journalApp.cache.AppCache;
 import com.projectOne.journalApp.entity.User;
 import com.projectOne.journalApp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class AdminController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private AppCache appCache;
+
     @GetMapping("all-users")
     public ResponseEntity<?> getAllUsers(){
         List<User> all = userService.getAll();
@@ -27,6 +31,12 @@ public class AdminController {
         }
 
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+
+    @GetMapping("clear-app-cache")
+    public void clearAppCache() {
+        appCache.init();
     }
 
 }
