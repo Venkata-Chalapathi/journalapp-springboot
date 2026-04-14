@@ -6,6 +6,18 @@ spring:
       auto-index-creation: true
       database: journaldb
 
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: chalapathivenkata40@gmail.com
+    password : bglr ljpo wvis gpvm
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
 server:
   port: 8081
   servlet:
